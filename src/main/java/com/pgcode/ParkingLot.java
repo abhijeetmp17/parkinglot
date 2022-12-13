@@ -1,53 +1,35 @@
 package com.pgcode;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ParkingLot {
-	
-	
-	private Vehicle vehicle;
-	
-	private final String[] parking_No = new String[10];
 
-	public ParkingLot(Vehicle vehicle) {
-		this.vehicle = vehicle;
-		
-	}
 
-	public Vehicle getVehicle() {
-		return vehicle;
-	}
+    private final int lot_no = 1;
 
-	public void setVehicle(Vehicle vehicle) {
-		this.vehicle = vehicle;
-	}
+    static Map<String, String> lot = new HashMap<String, String>();
 
-	public String[] getParking_No() {
-		return parking_No;
-	}
+    ParkingLot() {
+        lot.put("car", "Car_Parking");
+        lot.put("truck", "truck_parking");
+        lot.put("motorcycle", "motorcycle_parking");
+        lot.put("cycle", "cycle_parking");
 
-	@Override
-	public String toString() {
-		return "ParkingLot [vehicle=" + vehicle.getVehicle_No()+","+vehicle.getVehicle_Type()+"," + " parking_No=" + Arrays.toString(parking_No) + "]";
-	}
-	
-	
+    }
 
-	
 
-	
+    public String getLotName(Car v) {
+        if (v != null) {
+            System.out.println(lot);
+            String type = v.getType();
+            String allocated_lot = lot.get(type);
+            return allocated_lot;
 
-	
-	
-	
-	
 
-	
-	
-	
-	
-	
-	
-	
+        } else return null;
+    }
+
 
 }

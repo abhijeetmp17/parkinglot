@@ -22,16 +22,63 @@ import java.util.Iterator;
 public class App {
 	public static void main(String[] args) {
 
-		Vehicle car = new Car("MH-13 BZ 1765", "Maruti_Car");
-		Vehicle car2 = new Car("MH-14 HG 156", "Baleno");
-		ParkingLot lot = new ParkingLot(car);
-		ParkingLot lot2 = new ParkingLot(car2);
-		Date date = new Date();
-		ParkingTicket parkingTicket = new ParkingTicket("101", date, lot);
-		ParkingTicket parkingTicket2 = new ParkingTicket("102", date, lot2);
+		/*
+		car generated information taken
+		 */
+	Car v1 = new Car("MH 12 CJ 20220" , "Red");
+	/*
+		Allocation of parking lot
+	 */
+	ParkingLot p = new ParkingLot();
+		String lot_Name = p.getLotName(v1);
 
-		System.out.println(car.park_Vehicle(parkingTicket));
-		System.out.println(car2.park_Vehicle(parkingTicket2));
+		/*
+		creation of parking ticket
+		 */
+
+		ParkingTicket ticket = new ParkingTicket(100 , v1 , new Date() , lot_Name);
+		Car_Parking cp = new Car_Parking();
+
+
+		Integer slot_no = cp.allocate_parking_no(ticket);
+		System.err.println(slot_no);
+
+		ticket.setSlot_no(slot_no);
+
+//		Boolean b = cp.de_allocate_parking_no(ticket);
+//		ticket.setExit(b);
+		System.out.println(ticket);
+
+		/*
+		New Car Added
+		 */
+
+		Car c2 = new Car("MH 14 CJ 2020" , "golden");
+
+		String lot_Name1 = p.getLotName(c2);
+		ParkingTicket ticket1 = new ParkingTicket(200 , c2 , new Date() , lot_Name1);
+
+
+
+		Integer slot_no1 = cp.allocate_parking_no(ticket1);
+		ticket1.setSlot_no(slot_no1);
+		System.err.println(slot_no1);
+
+		System.out.println(ticket1);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	}
 }
