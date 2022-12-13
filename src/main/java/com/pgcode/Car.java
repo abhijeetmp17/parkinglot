@@ -1,47 +1,47 @@
 package com.pgcode;
 
-public class Car extends Vehicle {
-	
-	
+class Car {
 
-	public Car(String car_No , String type) {
-		super(car_No,type);
-		
-	}
+    private String car_no;
 
-	@Override
-	public ParkingTicket park_Vehicle(ParkingTicket parkingTicket) {
-		
-		String[] parking_No = parkingTicket.getParkingLot().getParking_No();
-		
-		for (int i = 0; i < parking_No.length; i++) {
-			
-			if (parking_No[i]==null) {
-				
-				parking_No[i]="reserved";
-				break;
-			}
-			
-		}
-		
-		
-		
-		return parkingTicket;
-	}
-	
+    private String car_colour;
 
-	@Override
-	public String toString() {
-		return "Car []";
-	}
+    private final String type = "car";
 
-	
-	
-	
 
-	
+    public String getCar_colour() {
+        return car_colour;
+    }
 
-	
-	
-	
+
+    public String getCar_no() {
+        return car_no;
+    }
+
+    public void setCar_no(String car_no) {
+        this.car_no = car_no;
+    }
+
+    public void setCar_colour(String car_colour) {
+        this.car_colour = car_colour;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "car_no='" + car_no + '\'' +
+                ", car_colour='" + car_colour + '\'' +
+                ", type='" + type + '\'' +
+                '}';
+    }
+
+    public Car(String car_no, String car_colour) {
+        this.car_no = car_no;
+        this.car_colour = car_colour;
+    }
+
+    public String getType() {
+        return type;
+    }
 }
