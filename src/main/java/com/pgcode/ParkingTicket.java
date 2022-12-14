@@ -1,11 +1,14 @@
 package com.pgcode;
 
+import com.pgcode.vehicles.Car;
+import com.pgcode.vehicles.Vehicle;
+
 import java.util.Date;
 
 public class ParkingTicket {
 
     private Integer Reg_no;
-    private Car car;
+    private Vehicle v;
 
 
     private Date date;
@@ -36,8 +39,8 @@ public class ParkingTicket {
         Reg_no = reg_no;
     }
 
-    public void setCar(Car car) {
-        this.car = car;
+    public void setVehicle(Vehicle v) {
+        this.v = v;
     }
 
     public void setDate(Date date) {
@@ -52,8 +55,15 @@ public class ParkingTicket {
         return Reg_no;
     }
 
-    public Car getCar() {
-        return car;
+    public ParkingTicket(Integer reg_no, Vehicle v, Date date) {
+        Reg_no = reg_no;
+        this.v = v;
+        this.date = date;
+
+    }
+
+    public Vehicle getV() {
+        return v;
     }
 
     public Date getDate() {
@@ -64,18 +74,20 @@ public class ParkingTicket {
         return lot_name;
     }
 
-    public ParkingTicket(Integer reg_no, Car car, Date date, String lot_name) {
+    public ParkingTicket(Integer reg_no, Vehicle v, Date date, String lot_name, int slot_no, boolean isExit) {
         Reg_no = reg_no;
-        this.car = car;
+        this.v = v;
         this.date = date;
         this.lot_name = lot_name;
+        this.slot_no = slot_no;
+        this.isExit = isExit;
     }
 
     @Override
     public String toString() {
         return "ParkingTicket{" +
                 "Reg_no=" + Reg_no +
-                ", car=" + car +
+                ", Vehicle=" + v +
                 ", date=" + date +
                 ", lot_name='" + lot_name + '\'' +
                 ", slot_no=" + slot_no +

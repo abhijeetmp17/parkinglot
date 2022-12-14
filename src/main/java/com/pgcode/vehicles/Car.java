@@ -1,12 +1,12 @@
-package com.pgcode;
+package com.pgcode.vehicles;
 
-class Car {
+public class Car implements Vehicle{
 
     private String car_no;
 
     private String car_colour;
 
-    private final String type = "car";
+    private final String type = "Car";
 
 
     public String getCar_colour() {
@@ -44,4 +44,7 @@ class Car {
     public String getType() {
         return type;
     }
+
+
+
 }
